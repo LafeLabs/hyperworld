@@ -8,3 +8,6 @@ A WORLD OF HYPERLINKS BETWEEN CARDBOARD SIGNS AND SELF-REPLICATING WEB PAGES ON 
 https://raw.githubusercontent.com/LafeLabs/hyperworld/main/php/replicator.txt
 ```
 
+![](https://raw.githubusercontent.com/LafeLabs/hyperworld/main/images/qrcode.png)
+
+![](https://raw.githubusercontent.com/LafeLabs/hyperworld/main/images/qrcode-page.png)
