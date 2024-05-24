@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+     <meta charset="utf-8"/>
+     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+        
+            <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+    </head>
+<body>
+    
+    <a id ="homelink" href = "index.html">HOME</a>
+    
+    <table>
+        <tr>
+            <td>LINK TEXT:</td><TD><INPUT id = "linktext"/></TD>
+        </tr>
+        <tr>
+            <td>LINK URL:</td><TD><INPUT id = "linkurl"/></TD>
+        </tr>
+    </table>
+
+<script>
+
+
+
+linktext = "";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        linktext = this.responseText;
+        document.getElementById("linktext").value = linktext;  
+    }
+};
+httpc.open("GET", "fileloader.php?filename=linktext.txt", true);
+httpc.send();
+
+document.getElementById("linktext").onkeyup = function() {
+    linktext = this.value;
+    data = encodeURIComponent(this.value);
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=linktext.txt");//send text to filesaver.php
+}
+
+
+linkurl = "";
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        linkurl = this.responseText;
+        document.getElementById("linkurl").value = linkurl;  
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=linkurl.txt", true);
+httpc2.send();
+
+document.getElementById("linkurl").onkeyup = function() {
+    linkurl = this.value;
+    data = encodeURIComponent(this.value);
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=linkurl.txt");//send text to filesaver.php
+}
+
+document.getElementById("linktext").select();
+
+</script>
+<style>
+body{
+    overflow:hidden;
+    background-color:#9f8767;
+}
+a{
+}
+table{
+    position:absolute;
+    top:50%;
+    FONT-SIZE:3em;
+        font-family:Comic Sans MS;
+
+}
+input{
+    font-size:1em;
+        background-color:#9f8767;
+    font-family:Comic Sans MS;
+
+}
+
+#homelink{
+    position:absolute;
+    left:0px;
+    top:0px;
+    font-size:2em;
+    font-family:Comic Sans MS;
+    font-size:4em;
+    color:blue;
+    
+}
+
+        </style>
+    </body>
+</html>

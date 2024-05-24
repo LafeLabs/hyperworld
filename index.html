@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- 
+
+EVERYTHING IS PHYSICAL
+EVERYTHING IS FRACTAL
+EVERYTHING IS RECURSIVE
+
+NO MONEY
+NO MINING
+NO PROPERTY
+
+LOOK AT THE INSECTS
+LOOK AT THE FUNGI
+LANGUAGE IS HOW THE MIND PARSES REALITY
+
+
+MULCH!
+MULCH!
+MULCH!
+MULCH!
+MULCH!
+
+WELCOME TO THE DIRT WEB!
+
+
+    -->
+    <title>TRASH MAGIC</title>
+
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQP8AAL8A/wD/AIAAn/8AAABg/wD/AN8A//8AAAD/gAD/QAAAAP/fAP8AIAAAv/8AAAD/AAD/IAD/nwAAYAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEAICAgAAAAAAAAAAAAICAgIGBgYABgYGBgYGBgAGBgYGAwMDAAMAAwADAAMAAwMDAwsLCwALAAsACwALAAsLCwsJCQkACQAJAAkACQAJCQkJDw8PAA8ADwAPAA8ADw8PDwcHBwAHAAcABwAHAAcHBwcEBAQABAAEAAQABAAEBAQEAQEBAAEAAQABAAEAAQEBAQ4ODgAODg4ODg4OAA4ODg4ICAAAAAAAAAAAAAAACAgICgoACgoKCgoKCgoKAAoKCgwMAAAAAAAAAAAAAAAMDAwFBQUFBQAFBQUABQUFBQUFDQ0NDQ0AAAAAAA0NDQ0NDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon">
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<script src="trashmagic.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+   <link rel="stylesheet" href="trashmagic.css">
+
+</head>
+<body>
+<div id = "mainscroll">
+        <div id = "qrcode"></div>
+
+    <img src = "square.png"/>
+
+    <h1 id = "title">WEB NOT BOMBS</h1>
+
+
+    <P id = "motd">MESSAGE OF THE DAY</P>
+
+    <a id = "toplink">TOP LINK</a>
+    <a href = "square.html">EDIT ICON</a>
+    <a href = "motd.html">EDIT MESSAGE OF THE DAY</a>
+    <a href = "title.html">EDIT TITLE</a>
+    <a href = "link.html">EDIT TOP LINK</a>
+
+
+
+</div>
+
+<script>
+
+
+currentfile = "motd.txt";
+
+//get readme.md, convert to html and display
+
+motd = "";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        motd = this.responseText;
+        document.getElementById("motd").innerHTML = motd;  
+    }
+};
+httpc.open("GET", "fileloader.php?filename=motd.txt", true);
+httpc.send();
+
+title = "";
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        title = this.responseText;
+        document.getElementById("title").innerHTML = title;  
+        rainbowstring(document.getElementById("title"));
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=title.txt", true);
+httpc2.send();
+
+
+linktext = "";
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        linktext = this.responseText;
+        document.getElementById("toplink").innerHTML = linktext;  
+    }
+};
+httpc3.open("GET", "fileloader.php?filename=linktext.txt", true);
+httpc3.send();
+
+linkurl = "";
+var httpc4 = new XMLHttpRequest();
+httpc4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        linkurl = this.responseText;
+        document.getElementById("toplink").href = linkurl;  
+    }
+};
+httpc4.open("GET", "fileloader.php?filename=linkurl.txt", true);
+httpc4.send();
+
+
+rainbow(document.getElementsByTagName("A"));
+
+
+codesquaresize = 170;
+marginsize = 40;
+fontsize = 12;
+//globalurl = "http://www.trashrobot.org/qrcode.html";
+globalurl = window.location.href;
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+    background-color:#9f8767;    
+}
+</style>
+</body>
+</html>
+
+<!--
+WEB SERVERS NOT BOMBS
+#WEBSERVERSNOTBOMBS
+-->
